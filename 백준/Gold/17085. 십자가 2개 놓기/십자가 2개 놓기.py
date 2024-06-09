@@ -62,7 +62,6 @@ for i in range(N):
         else:
             candi.append([Min, (i, j)])
 
-candi.sort(reverse=True)
 len_candi = len(candi)
 
 
@@ -72,6 +71,8 @@ for j in range(len_candi-1):
     biggest = j # 첫번째 십자가 인덱스 후보
     for i in range(j+1, len_candi):
         next_biggest = i # 두번째 십자가 인덱스 후보
+        
+        if (candi[biggest][0]*4+1)*(candi[next_biggest][0]*4+1) < Max: continue
 
         flag = 0
         for n in range(candi[biggest][0]+1):
