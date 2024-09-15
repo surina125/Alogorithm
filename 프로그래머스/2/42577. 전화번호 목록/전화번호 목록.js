@@ -3,9 +3,7 @@ function solution(phone_book) {
     for (i = 0; i < ph.length - 1; i++) {
         num = 0
         for (j = 0; j < ph[i].length; j++) {
-            if (ph[i][j] !== ph[i+1][j]) {
-                break
-            } else {
+            if (ph[i][j] === ph[i+1][j]) {
                 num += 1
             }
         if (num === ph[i].length) {
