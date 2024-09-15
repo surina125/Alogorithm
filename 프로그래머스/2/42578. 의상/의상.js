@@ -14,7 +14,7 @@ function solution(clothes) {
         new_clothes[types.indexOf(clothes[i][1])].push(clothes[i][0])
     }
     
-    answer = 1
+    let answer = 1
     for (i = 0; i < len_types; i++) {
         answer *= (new_clothes[i].length + 1)
     }
