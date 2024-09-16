@@ -1,22 +1,17 @@
 function solution(clothes) {
-    const len_clothes = clothes.length
-    let types = []
-    for (i = 0; i < len_clothes; i++) {
-        if (!(types.includes(clothes[i][1]))) {
-            types.push(clothes[i][1])
+    let new_clothes = {}
+    
+    for (let i = 0; i < clothes.length; i++) {
+        let type = clothes[i][1]
+        if (!new_clothes[type]) {
+            new_clothes[type] = []
         }
-    }
-    
-    const len_types = types.length
-    let new_clothes = Array.from({ length: len_types }, () => [])
-    
-    for (let i = 0; i < len_clothes; i++) {
-        new_clothes[types.indexOf(clothes[i][1])].push(clothes[i][0])
-    }
-    
+        new_clothes[type].push(clothes[i][0])
+        }
+            
     let answer = 1
-    for (let i = 0; i < len_types; i++) {
-        answer *= (new_clothes[i].length + 1)
+    for (let type in new_clothes) {
+        answer *= (new_clothes[type].length + 1)
     }
     return answer - 1
 }
