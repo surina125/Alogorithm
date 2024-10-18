@@ -1,15 +1,12 @@
 def solution(s):
-    answer = False
-    stack = []
-    for i in s:
-        if stack and stack[-1] == "(":
-            if i == ")":
-                stack.pop()
-            else :
-                stack.append(i)
-        else : 
-            stack.append(i)
-    
-    if not stack :
-        answer = True 
-    return answer
+    cnt = 0
+    q = list(s)
+    for i in q:
+        if cnt < 0:
+            return False
+        if i == '(':
+           cnt += 1
+        else:
+            cnt -= 1
+    if cnt != 0: return False        
+    return True
